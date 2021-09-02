@@ -629,6 +629,13 @@ class JC_Submenu_Nav_Walker extends Walker_Nav_Menu {
 		}
 
 		foreach($elements as $i => $element){
+			
+			//Add's the menu-item class to individual list elements
+	
+			$elements[$i]->classes[] = 'menu-item';
+			$elements[$i]->classes[] = $element->type ? 'menu-item-type-' . $element->type : '';
+			$elements[$i]->classes[] = $element->object ? 'menu-item-object-' . $element->object : '';
+
 			if(!in_array($element->$id_field, $parent_ids)){
 				continue;
 			}
